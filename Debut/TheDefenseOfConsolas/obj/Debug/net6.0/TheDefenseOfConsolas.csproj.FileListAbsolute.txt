@@ -1,0 +1,15 @@
+/home/wan/cs/projects/TheDefenseOfConsolas/bin/Debug/net6.0/TheDefenseOfConsolas
+/home/wan/cs/projects/TheDefenseOfConsolas/bin/Debug/net6.0/TheDefenseOfConsolas.deps.json
+/home/wan/cs/projects/TheDefenseOfConsolas/bin/Debug/net6.0/TheDefenseOfConsolas.runtimeconfig.json
+/home/wan/cs/projects/TheDefenseOfConsolas/bin/Debug/net6.0/TheDefenseOfConsolas.dll
+/home/wan/cs/projects/TheDefenseOfConsolas/bin/Debug/net6.0/ref/TheDefenseOfConsolas.dll
+/home/wan/cs/projects/TheDefenseOfConsolas/bin/Debug/net6.0/TheDefenseOfConsolas.pdb
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.csproj.AssemblyReference.cache
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.GeneratedMSBuildEditorConfig.editorconfig
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.AssemblyInfoInputs.cache
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.AssemblyInfo.cs
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.csproj.CoreCompileInputs.cache
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.dll
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/ref/TheDefenseOfConsolas.dll
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.pdb
+/home/wan/cs/projects/TheDefenseOfConsolas/obj/Debug/net6.0/TheDefenseOfConsolas.genruntimeconfig.cache

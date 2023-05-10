@@ -1,0 +1,15 @@
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.csproj.AssemblyReference.cache
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.GeneratedMSBuildEditorConfig.editorconfig
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.AssemblyInfoInputs.cache
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.AssemblyInfo.cs
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.csproj.CoreCompileInputs.cache
+/home/wan/cs/projects/BuyingInventory/bin/Debug/net6.0/BuyingInventory
+/home/wan/cs/projects/BuyingInventory/bin/Debug/net6.0/BuyingInventory.deps.json
+/home/wan/cs/projects/BuyingInventory/bin/Debug/net6.0/BuyingInventory.runtimeconfig.json
+/home/wan/cs/projects/BuyingInventory/bin/Debug/net6.0/BuyingInventory.dll
+/home/wan/cs/projects/BuyingInventory/bin/Debug/net6.0/ref/BuyingInventory.dll
+/home/wan/cs/projects/BuyingInventory/bin/Debug/net6.0/BuyingInventory.pdb
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.dll
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/ref/BuyingInventory.dll
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.pdb
+/home/wan/cs/projects/BuyingInventory/obj/Debug/net6.0/BuyingInventory.genruntimeconfig.cache

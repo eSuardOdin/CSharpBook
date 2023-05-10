@@ -1,0 +1,15 @@
+/home/wan/cs/projects/RepairingTheClockTower/bin/Debug/net6.0/RepairingTheClockTower
+/home/wan/cs/projects/RepairingTheClockTower/bin/Debug/net6.0/RepairingTheClockTower.deps.json
+/home/wan/cs/projects/RepairingTheClockTower/bin/Debug/net6.0/RepairingTheClockTower.runtimeconfig.json
+/home/wan/cs/projects/RepairingTheClockTower/bin/Debug/net6.0/RepairingTheClockTower.dll
+/home/wan/cs/projects/RepairingTheClockTower/bin/Debug/net6.0/ref/RepairingTheClockTower.dll
+/home/wan/cs/projects/RepairingTheClockTower/bin/Debug/net6.0/RepairingTheClockTower.pdb
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.csproj.AssemblyReference.cache
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.GeneratedMSBuildEditorConfig.editorconfig
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.AssemblyInfoInputs.cache
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.AssemblyInfo.cs
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.csproj.CoreCompileInputs.cache
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.dll
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/ref/RepairingTheClockTower.dll
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.pdb
+/home/wan/cs/projects/RepairingTheClockTower/obj/Debug/net6.0/RepairingTheClockTower.genruntimeconfig.cache

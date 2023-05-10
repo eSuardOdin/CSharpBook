@@ -1,0 +1,15 @@
+/home/wan/cs/projects/CountDown/bin/Debug/net6.0/CountDown
+/home/wan/cs/projects/CountDown/bin/Debug/net6.0/CountDown.deps.json
+/home/wan/cs/projects/CountDown/bin/Debug/net6.0/CountDown.runtimeconfig.json
+/home/wan/cs/projects/CountDown/bin/Debug/net6.0/CountDown.dll
+/home/wan/cs/projects/CountDown/bin/Debug/net6.0/ref/CountDown.dll
+/home/wan/cs/projects/CountDown/bin/Debug/net6.0/CountDown.pdb
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.csproj.AssemblyReference.cache
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.GeneratedMSBuildEditorConfig.editorconfig
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.AssemblyInfoInputs.cache
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.AssemblyInfo.cs
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.csproj.CoreCompileInputs.cache
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.dll
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/ref/CountDown.dll
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.pdb
+/home/wan/cs/projects/CountDown/obj/Debug/net6.0/CountDown.genruntimeconfig.cache

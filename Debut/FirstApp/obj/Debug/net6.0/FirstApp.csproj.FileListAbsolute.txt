@@ -1,0 +1,15 @@
+/home/wan/cs/projects/FirstApp/bin/Debug/net6.0/FirstApp
+/home/wan/cs/projects/FirstApp/bin/Debug/net6.0/FirstApp.deps.json
+/home/wan/cs/projects/FirstApp/bin/Debug/net6.0/FirstApp.runtimeconfig.json
+/home/wan/cs/projects/FirstApp/bin/Debug/net6.0/FirstApp.dll
+/home/wan/cs/projects/FirstApp/bin/Debug/net6.0/ref/FirstApp.dll
+/home/wan/cs/projects/FirstApp/bin/Debug/net6.0/FirstApp.pdb
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.csproj.AssemblyReference.cache
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.GeneratedMSBuildEditorConfig.editorconfig
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.AssemblyInfoInputs.cache
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.AssemblyInfo.cs
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.csproj.CoreCompileInputs.cache
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.dll
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/ref/FirstApp.dll
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.pdb
+/home/wan/cs/projects/FirstApp/obj/Debug/net6.0/FirstApp.genruntimeconfig.cache
