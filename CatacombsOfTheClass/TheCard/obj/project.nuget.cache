@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VJiQhd2/jPhxaw7Xnaid9iODXzBINwdq5MBKee5RzPzHFeY3zphbPmcsxOL6S+b0cZFbKh/1RA14ddJKaBL56w==",
+  "dgSpecHash": "xgxy1CsejUIWdHxHnA3VN++9QIBrTpqvweKMihd1NF8fVG52zvMM5yjbOdqqZEZSHnUaKXJ92fTgbFK7YdTVvA==",
   "success": true,
-  "projectFilePath": "/home/wan/cs/projects/CatacombsOfTheClass/TheCard/TheCard.csproj",
+  "projectFilePath": "D:\\Dev\\Cs\\CSharpBook\\CatacombsOfTheClass\\TheCard\\TheCard.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
