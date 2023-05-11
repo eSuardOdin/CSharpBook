@@ -12,6 +12,7 @@ foreach(Color color in Enum.GetValues(typeof(Color))){
 foreach (Card card in Deck)
 {
     card.GetCardDescription();
+    card.GetCardStatus();
 }
 
 
@@ -27,6 +28,12 @@ class Card
     public void GetCardDescription() {
         Console.WriteLine($"- The {Color} {Rank}");
     }
+
+    public void GetCardStatus() {
+        if ((int)Rank < 10) Console.WriteLine("This card is a number");
+        else Console.WriteLine("This card is a symbol");
+    }
+
 }
 
 enum Color {Red, Green, Blue, Yellow}
