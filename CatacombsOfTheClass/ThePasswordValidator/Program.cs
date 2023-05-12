@@ -7,7 +7,7 @@ PasswordValidator pv = new PasswordValidator(5, 12, 3, 1, 1, charList);
 pv.PrintPasswordSpec();
 
 while(true) {
-    Console.WriteLine("Enter a password");
+    Console.Write("Enter a password : ");
     string pass = Console.ReadLine();
     (bool status, string error) = pv.CheckPassword(pass);
     if(!status) Console.WriteLine(error);
