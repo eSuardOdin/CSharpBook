@@ -68,13 +68,13 @@ public class Puzzle
             Board[VoidPosition] = tmp;
             VoidPosition = VoidPosition + X;
         }
-        else if(move == "left" && (VoidPosition - 1) >= 0) {
+        else if(move == "left" && (VoidPosition - 1) % X != X-1) {
             tmp = Board[VoidPosition - 1];
             Board[VoidPosition - 1] = 0;
             Board[VoidPosition] = tmp;
             VoidPosition = VoidPosition - 1;
         }
-        else if(move == "right" && (VoidPosition + 1) < Board.Length) {
+        else if(move == "right" && (VoidPosition + 1) % X != 0) {
             tmp = Board[VoidPosition + 1];
             Board[VoidPosition + 1] = 0;
             Board[VoidPosition] = tmp;
