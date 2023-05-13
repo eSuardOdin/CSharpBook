@@ -2,9 +2,11 @@
 Puzzle puz = new Puzzle();
 
 // Console.WriteLine(puz.VoidPosition);
-Display.DisplayBoard(3, puz.Board);
 
-
+while(true) {
+    Display.DisplayBoard(puz.X, puz.Board);
+    puz.MoveZero(InputHandler.GetPlayerMove());
+}
 
 
 
@@ -15,13 +17,13 @@ Display.DisplayBoard(3, puz.Board);
 
 public class Puzzle 
 {
-    private int X {get;}
+    public int X {get;}
     public int[] Board {get; private set;}
     public int VoidPosition {get; private set;}
 
     public Puzzle() {
         var rand = new Random();
-        X = 3;
+        X = 4; // Change to allow player 2² to 9²
         PopulateBoard(X*X);
     }
 
@@ -51,16 +53,67 @@ public class Puzzle
             if(pick == 0) VoidPosition = i;
         }
     }
+
+    public void MoveZero(string move) {
+        int tmp;
+        if(move == "up" && (VoidPosition - X) >= 0) {
+            tmp = Board[VoidPosition - X];
+            Board[VoidPosition - X] = 0;
+            Board[VoidPosition] = tmp;
+            VoidPosition = VoidPosition - X;
+        }
+        else if(move == "down" && (VoidPosition + X) < Board.Length) {
+            tmp = Board[VoidPosition + X];
+            Board[VoidPosition + X] = 0;
+            Board[VoidPosition] = tmp;
+            VoidPosition = VoidPosition + X;
+        }
+        else if(move == "left" && (VoidPosition - 1) >= 0) {
+            tmp = Board[VoidPosition - 1];
+            Board[VoidPosition - 1] = 0;
+            Board[VoidPosition] = tmp;
+            VoidPosition = VoidPosition - 1;
+        }
+        else if(move == "right" && (VoidPosition + 1) < Board.Length) {
+            tmp = Board[VoidPosition + 1];
+            Board[VoidPosition + 1] = 0;
+            Board[VoidPosition] = tmp;
+            VoidPosition = VoidPosition + 1;
+        }
+    }
+}
+
+public static class InputHandler {
+    public static string GetPlayerMove() {
+        ConsoleKeyInfo key;
+        do {
+            key = Console.ReadKey();
+        } while(
+            key.Key != ConsoleKey.RightArrow &&
+            key.Key != ConsoleKey.LeftArrow &&
+            key.Key != ConsoleKey.UpArrow &&
+            key.Key != ConsoleKey.DownArrow
+        );
+        
+        switch(key.Key) {
+            case ConsoleKey.RightArrow:
+                return "right";
+            case ConsoleKey.LeftArrow:
+                return "left";
+            case ConsoleKey.UpArrow:
+                return "up";
+            case ConsoleKey.DownArrow:
+                return "down";
+        }
+        return ""; // To improve
+    }
 }
 
 
 public static class Display 
 {
     public static void DisplayBoard(int x, int[] board) {
-        // foreach (var item in board)
-        // {
-        //     Console.WriteLine(item);
-        // }
+        Console.Clear();
         int currentIndex = 0;
         string line;
         string boardString = "";
@@ -74,15 +127,24 @@ public static class Display
                     if(j%3 == 0) line += "|";
                     // Print of numbers
                     else {
+                        // If the number is 1 char long
                         if(board[currentIndex] < 10) {
-                            if (j % 3 == 2) {
-                                line += board[currentIndex].ToString();
+                            if (j % 3 == 2) { // If we're on number spot
+                                if (board[currentIndex] != 0) line += board[currentIndex].ToString();
+                                else                          line += " ";
                                 if(currentIndex + 1 != board.Length) currentIndex++;
                             }
-                            else {
-                                line += " ";
-                            }
-                        }  
+                            else line += " ";
+                            
+                        } else if (board[currentIndex] >= 10) {
+                            if (j % 3 == 1) { // If we're on leftmost char of number
+                                line += board[currentIndex].ToString()[0];
+                            } else if (j % 3 == 2) { // If we're on rigthmost char
+                                line += board[currentIndex].ToString()[1];
+                                if(currentIndex + 1 != board.Length) currentIndex++;
+                            } 
+                            else line += " ";
+                        }
                     }        
                 }
             }
@@ -91,6 +153,11 @@ public static class Display
         Console.WriteLine(boardString);
     }
 }
+
+
+
+
+
 public static class Logger {
 
     public static void Log(string text) {
