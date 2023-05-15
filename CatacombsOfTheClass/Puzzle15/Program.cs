@@ -5,6 +5,7 @@ Puzzle puz = new Puzzle();
 
 while(true) {
     Display.DisplayBoard(puz.X, puz.Board);
+    Display.DisplayWellPlaced(puz.ReturnWellPlaced());
     puz.MoveZero(InputHandler.GetPlayerMove());
 }
 
@@ -81,6 +82,16 @@ public class Puzzle
             VoidPosition = VoidPosition + 1;
         }
     }
+
+
+    public List<int> ReturnWellPlaced(){
+        List<int> res = new List<int>();
+        for (int i = 0; i < Board.Length; i++)
+        {
+            if(Board[i] == i+1) res.Add(Board[i]);
+        }
+        return res;
+    }
 }
 
 public static class InputHandler {
@@ -151,6 +162,18 @@ public static class Display
             boardString += line + "\n";
         }
         Console.WriteLine(boardString);
+    }
+
+    public static void DisplayWellPlaced(List<int> list) {
+        if (list.Count() > 0) {
+            string str = "Well placed numbers : [ ";
+            foreach (int num in list)
+            {
+                str += num.ToString() + " ";
+            }
+            str+= "]";
+            Console.WriteLine(str);
+        }
     }
 }
 
