@@ -1,17 +1,58 @@
 ﻿
-Puzzle puz = new Puzzle();
+// Puzzle puz = new Puzzle();
 
-// Console.WriteLine(puz.VoidPosition);
 
-while(true) {
-    Display.DisplayBoard(puz.X, puz.Board);
-    Display.DisplayWellPlaced(puz.ReturnWellPlaced());
-    puz.MoveZero(InputHandler.GetPlayerMove());
+// while(true) {
+//     Display.DisplayBoard(puz.X, puz.Board);
+//     Display.DisplayWellPlaced(puz.ReturnWellPlaced());
+//     puz.MoveZero(InputHandler.GetPlayerMove());
+// }
+Game game = new Game();
+
+
+/// <summary>
+/// Will create puzzle based on difficulty inputed, check if win and keep track of number of plays
+/// </summary>
+public class Game {
+
+    public int MovesPlayed {get; private set;}
+    public Game() {
+        MovesPlayed = 0;
+        Puzzle puz = new Puzzle(GetSquareLength());
+        Run(puz);
+    }
+
+
+
+    private bool CheckIfWin(int[] board, List<int> wellPlaced) {
+        return board.Length - 1 == wellPlaced.Count();
+    }
+    private int GetSquareLength() {
+        Console.Write("Please enter a length for the square sides (2-9) -> ");
+        int res;
+        do {
+            while(!int.TryParse(Console.ReadLine(), out res)) {
+                Console.Write("Must be a number : ");
+            }
+            if(res < 2 || res > 9) Console.WriteLine("Must be comprised between 2 and 9");
+        } while(res < 2 || res > 9);
+        return res;
+    }
+
+    public void Run(Puzzle puz) {
+        do {
+            Display.DisplayBoard(puz.X, puz.Board);
+            Display.DisplayWellPlaced(puz.ReturnWellPlaced());
+            Display.DisplayMoves(MovesPlayed);
+            puz.MoveZero(InputHandler.GetPlayerMove());
+            MovesPlayed++;
+        } while(!CheckIfWin(puz.Board, puz.ReturnWellPlaced()));
+        Display.DisplayBoard(puz.X, puz.Board);
+        Display.DisplayWellPlaced(puz.ReturnWellPlaced());
+        Console.WriteLine($"You won with {MovesPlayed} moves !");
+    }
+
 }
-
-
-
-
 
 
 
@@ -22,9 +63,9 @@ public class Puzzle
     public int[] Board {get; private set;}
     public int VoidPosition {get; private set;}
 
-    public Puzzle() {
+    public Puzzle(int x) {
         var rand = new Random();
-        X = 4; // Change to allow player 2² to 9²
+        X = x; // Change to allow player 2² to 9²
         PopulateBoard(X*X);
     }
 
@@ -69,13 +110,13 @@ public class Puzzle
             Board[VoidPosition] = tmp;
             VoidPosition = VoidPosition + X;
         }
-        else if(move == "left" && (VoidPosition - 1) % X != X-1) {
+        else if(move == "left" && (VoidPosition - 1) % X != X-1 && (VoidPosition - 1) != -1) {
             tmp = Board[VoidPosition - 1];
             Board[VoidPosition - 1] = 0;
             Board[VoidPosition] = tmp;
             VoidPosition = VoidPosition - 1;
         }
-        else if(move == "right" && (VoidPosition + 1) % X != 0) {
+        else if(move == "right" && (VoidPosition + 1) % X != 0 && (VoidPosition + 1) != Board.Length) {
             tmp = Board[VoidPosition + 1];
             Board[VoidPosition + 1] = 0;
             Board[VoidPosition] = tmp;
@@ -174,6 +215,13 @@ public static class Display
             str+= "]";
             Console.WriteLine(str);
         }
+        else {
+            Console.WriteLine("No numbers well placed.");
+        }
+    }
+
+    public static void DisplayMoves(int moves) {
+        Console.WriteLine($"Moves played : {moves}");
     }
 }
 
