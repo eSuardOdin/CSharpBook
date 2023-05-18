@@ -32,6 +32,13 @@ do {
                 Console.WriteLine("Cannot add " + bow.GetType());
             }
             break;
+        case "R":
+            if(pack.AddItem(rope)) {
+                Console.WriteLine(rope.GetType() + " Added");
+            } else {
+                Console.WriteLine("Cannot add " + rope.GetType());
+            }
+            break;
         case "S":
             if(pack.AddItem(sword)) {
                 Console.WriteLine(sword.GetType() + " Added");
@@ -114,7 +121,7 @@ public class Pack {
 
         Console.WriteLine("\nPACK : ");
         for(int i = 0; i < AddedItems; i++) {
-            Console.WriteLine($"\t-{Items[i].GetType()}");
+            Items[i].GetItemType();
         }
     }
 }
@@ -122,7 +129,7 @@ public class Pack {
 
 
 
-public class InventoryItem {
+public abstract class InventoryItem {
     public float Weight {get; protected set;}
     public float Volume {get; protected set;}
 
@@ -130,27 +137,54 @@ public class InventoryItem {
         Weight = weight;
         Volume = volume;
     }
+
+    public abstract void GetItemType();
 }
 
 
 public class Arrow : InventoryItem {
     public Arrow() : base(0.1f, 0.05f) {}
+    public override void GetItemType()
+    {
+        Console.WriteLine("\t- Arrow");
+    }
+
 }
 
 public class Bow : InventoryItem {
     public Bow() : base(1f, 4f) {}
+    public override void GetItemType()
+    {
+        Console.WriteLine("\t- Bow");
+    }
 }
 
 public class Rope : InventoryItem {
     public Rope() : base(1f, 1.5f) {}
+    public override void GetItemType()
+    {
+        Console.WriteLine("\t- Rope");
+    }
 }
 public class Water : InventoryItem {
     public Water() : base(2f, 3f) {}
+    public override void GetItemType()
+    {
+        Console.WriteLine("\t- Water");
+    }
 }
 public class Food : InventoryItem {
     public Food() : base(1f, 0.5f) {}
+    public override void GetItemType()
+    {
+        Console.WriteLine("\t- Food");
+    }
 }
 
 public class Sword : InventoryItem {
     public Sword() : base(5f, 3f) {}
+    public override void GetItemType()
+    {
+        Console.WriteLine("\t- Sword");
+    }
 }
