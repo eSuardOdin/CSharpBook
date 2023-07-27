@@ -63,22 +63,22 @@ Console.WriteLine(arrow.GetCost());
 
 public class Arrow 
 {
-    public int length;
-    public Fletching fletching;
-    public Arrowhead arrowhead;
+    public int Length { get; private set; }
+    public Fletching Fletching { get; private set; }
+    public Arrowhead Arrowhead { get; private set; }
 
     public Arrow(int length, Fletching fletching, Arrowhead arrowhead) 
     {
-        this.length = length;
-        this.fletching = fletching;
-        this.arrowhead = arrowhead;
-    } 
+        this.Length = length;
+        this.Fletching = fletching;
+        this.Arrowhead = arrowhead;
+    }
 
     public float GetCost() 
     {
         float price = 0;
-        price += length * 0.05f;
-        switch (this.fletching)
+        price += Length * 0.05f;
+        switch (Fletching)
         {
             case Fletching.plastic:
                 price += 10f;
@@ -90,7 +90,7 @@ public class Arrow
                 price += 5f;
                 break;
         }
-        switch (this.arrowhead)
+        switch (Arrowhead)
         {
             case Arrowhead.wood:
                 price += 3f;
