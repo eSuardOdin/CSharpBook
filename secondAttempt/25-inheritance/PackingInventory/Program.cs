@@ -51,7 +51,18 @@ public class Pack
         AddedItems = 0;
     }
 
+    public void DisplayPackInfo() {
+        Console.WriteLine($"-Weight : {GetWeight()}/{MaxWeight}\n-Volume : {GetVolume()}/{MaxVolume}\n-Items : {AddedItems}/{Items.Length}");
+        DisplayPackItems();
+    }
 
+    private void DisplayPackItems(){
+
+        Console.WriteLine("\nPACK : ");
+        for(int i = 0; i < AddedItems; i++) {
+            Items[i].GetItemType();
+        }
+    }   
     public bool Add(InventoryItem item)
     {
         if(
@@ -64,7 +75,6 @@ public class Pack
         AddedItems++;
         return true;
     }
-
     private float GetWeight() 
     {
         float Weight = 0;
@@ -83,4 +93,5 @@ public class Pack
         }
         return volume;
     }
+
 }
