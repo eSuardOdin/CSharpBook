@@ -17,7 +17,25 @@ while(ship.Health > 0)
 
 public class Ship
 {
-    public event Action<DateTime>? ShipExploded;
+    //-----------------------------------------
+    // public event Action<DateTime>? ShipExploded; -> Première version
+    //-----------------------------------------
+
+    private Action<DateTime>? _shipExploded;
+    public event Action<DateTime>? ShipExploded
+    {
+        add
+        {
+            _shipExploded += value;
+            Console.WriteLine("Event added to a listener");
+        }
+        remove {
+            
+            _shipExploded -= value;
+            Console.WriteLine("Event removed from listener");
+        
+        }
+    }
     public int Health { get; private set; }
 
     public Ship(int health)
@@ -30,7 +48,8 @@ public class Ship
         Health -= amount;
         if (Health <= 0) 
         {
-            ShipExploded?.Invoke(DateTime.Now); // Check if null event (if no handlers attached)
+            //ShipExploded?.Invoke(DateTime.Now); // Check if null event (if no handlers attached) -> Première version
+            _shipExploded?.Invoke(DateTime.Now); // Check if null event (if no handlers attached)
         }
     }
 
@@ -69,21 +88,5 @@ public class SoundEffectManager
 }
 
 
-// public class FrenchSoundManager
-// {
-//     public FrenchSoundManager(Ship ship)
-//     {
-//         ship.ShipExploded += HandleExplosion;
-//     }
 
-//     private void HandleExplosion(DateTime now) 
-//     {
-//         Console.WriteLine($"C'est bien dommage, votre vaisseau a explosé le {now}");
-//     }
 
-//     // To clean the event and let the garbage collector clean the object
-//     private void Cleanup()
-//     {
-//         Ship.ShipExploded -= HandleExplosion;
-//     }
-// }
