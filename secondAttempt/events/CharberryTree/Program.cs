@@ -59,7 +59,7 @@ public class Harvester
         Tree = tree;
         Tree.Ripened += Harvest;
     }
-    private void Harvest(DateTime now)
+    private void Harvest(DateTime _)
     {
         Fruits++;
         Console.WriteLine("Fruit has been harvested, tree is now growing a new one.");
