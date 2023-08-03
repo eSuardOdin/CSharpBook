@@ -16,7 +16,7 @@ Sieve sieve = choice switch
 {
     0 => new Sieve(IsEven),
     1 => new Sieve(IsPos),
-    2 => new Sieve(IsModTen),
+    2 => new Sieve(n => n%10==0),
     
 }; 
 
