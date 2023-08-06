@@ -18,7 +18,12 @@ if(!string.IsNullOrEmpty(message))
 List<Score> test = MakeDefaultScores();
 SaveScores(test);
 List<Score> newList = LoadHighScores();
-
+if(!File.Exists("./backup_dir/scores_backup.csv")) 
+{ 
+    File.Copy("scores.csv", "scores_backup.csv");
+    Directory.CreateDirectory("backup_dir");
+    File.Move("scores_backup.csv", "./backup_dir/scores_backup.csv");
+}
 List<Score> MakeDefaultScores() 
 {
     return new List<Score>()
