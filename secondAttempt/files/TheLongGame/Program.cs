@@ -8,29 +8,22 @@
 */
 
 using TheLongGame;
-/* Console.Write("Please enter your name : ");
-var name = Console.ReadLine();
-while (string.IsNullOrEmpty(name));
-{
-    Console.Write("Please enter a valid name : ");
-    name = Console.ReadLine();
-} 
-
-if(!File.Exists("")) { File.Create()} */
 
 Game game = new("./Scores");
 SaveManager sm = new("./Scores");
-Player player = sm.LoadPlayer("valid");
-Console.WriteLine($"{player.Name} {player.Score}");
-Console.Write("Entre un score pour le test : ");
-int test;
-Int32.TryParse(Console.ReadLine(), out test);
-player.Score = test;
-sm.SavePlayer(player);
-Console.WriteLine($"UPDATE : {player.Name} {player.Score}");
+// Player player = sm.LoadPlayer("valid");
+// Console.WriteLine($"{player.Name} {player.Score}");
+// Console.Write("Entre un score pour le test : ");
+// int test;
+// Int32.TryParse(Console.ReadLine(), out test);
+// player.Score = test;
+// sm.SavePlayer(player);
+// Console.WriteLine($"UPDATE : {player.Name} {player.Score}");
 
 
 
-
-
-
+// Console.WriteLine(sm.IsStringValid(" Hello"));
+// Console.WriteLine(sm.IsStringValid("Hello "));
+// Console.WriteLine(sm.IsStringValid("@ello"));
+// Console.WriteLine(sm.IsStringValid("123456789123456789123456789123456"));
+// Console.WriteLine(sm.IsStringValid("Hello"));

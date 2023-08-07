@@ -2,33 +2,79 @@ namespace TheLongGame;
 
 public class Game
 {
-    private List<Player> Players { get; set; }
+    // private List<Player> Players { get; set; }
     private Player CurrentPlayer { get; set;}
+    private SaveManager GameSaveManager { get; set; }
     private string ScorePath { get; set; }
     public Game(string path)
     {
-        Players = new List<Player>();
+        Console.Clear();
+        // Players = new List<Player>();
         ScorePath = path;
-        if(!Directory.Exists(ScorePath)) { Directory.CreateDirectory(ScorePath); }
-        foreach(var file in Directory.EnumerateFiles(ScorePath))
+        GameSaveManager = new SaveManager(ScorePath);
+        CurrentPlayer = GetCurrentPlayer();
+        GameLoop();
+    }
+
+    
+    /// <summary>
+    /// Asks the user to provide a name, if a filename
+    /// already exists, load the player, else, creates
+    /// a new one.
+    /// </summary>
+    /// <returns>The current player</returns>
+    private Player GetCurrentPlayer()
+    {
+
+        string name = null;
+        while(string.IsNullOrEmpty(name))
         {
-            // Get player name
-            string name = Path.GetFileNameWithoutExtension(file);
-            // Get Player score, if no score, delete file.
-            int score;
-            if (Int32.TryParse(File.ReadAllText(file), out score))
+            Console.Write("Please enter your player name : ");
+            name = Console.ReadLine();
+            if(!GameSaveManager.IsStringValid(name)) 
             {
-                Player player = new Player(name, score);
-                Players.Add(player);
-                Console.WriteLine($"Player : {player.Name}");
-                Console.WriteLine($"Score : {player.Score}");
+                Console.WriteLine("The name must not be null or contain special chars. Max length : 32 char.");
+                name = "";
             }
-            else
-            {
-                Console.WriteLine($"File '{file}' not in a valid format, deleting it");
-                File.Delete(file);
-            }          
         }
 
+        // Name is now valid, checking if the player already exists.
+        if(GameSaveManager.PlayerExists(name))
+        {
+            return GameSaveManager.LoadPlayer(name);
+        }
+        else
+        {
+            return new Player(name, 0);
+        }
+
+    }
+
+    /// <summary>
+    /// Reads the keys typed before any key is Enter
+    /// returns the number of keys typed
+    /// </summary>
+    /// <returns></returns>
+    private int KeysTyping()
+    {
+        int typed = 0;
+        ConsoleKeyInfo test;
+        do
+        {
+            test = Console.ReadKey();
+            // Console.WriteLine($"{test.Key} typed");
+            if(test.Key != ConsoleKey.Enter) { typed++; }
+        } while(test.Key != ConsoleKey.Enter);
+        return typed;
+    }
+
+
+    private void GameLoop()
+    {
+        Console.WriteLine($"Welcome {CurrentPlayer.Name}");
+        Console.WriteLine($"Current score : {CurrentPlayer.Score}");
+        CurrentPlayer.AddToScore(KeysTyping());
+        Console.WriteLine($"Great job {CurrentPlayer.Name}, your score is now {CurrentPlayer.Score} !");
+        GameSaveManager.SavePlayer(CurrentPlayer);
     }
 }
