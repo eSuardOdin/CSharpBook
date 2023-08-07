@@ -7,7 +7,7 @@
     It displays the top 3 scores and usernames associated with the users score
 */
 
-
+using TheLongGame;
 /* Console.Write("Please enter your name : ");
 var name = Console.ReadLine();
 while (string.IsNullOrEmpty(name));
@@ -29,95 +29,8 @@ player.Score = test;
 sm.SavePlayer(player);
 Console.WriteLine($"UPDATE : {player.Name} {player.Score}");
 
-public class Player
-{
-    public string Name { get; private set; }
-    public int Score { get; /*private*/ set; }
-
-    public Player(string name, int score)
-    {
-        Name = name;
-        Score = score;
-    }
-}
-
-public class Game
-{
-    private List<Player> Players { get; set; }
-    private Player CurrentPlayer { get; set;}
-    private string ScorePath { get; set; }
-    public Game(string path)
-    {
-        Players = new List<Player>();
-        ScorePath = path;
-        if(!Directory.Exists(ScorePath)) { Directory.CreateDirectory(ScorePath); }
-        foreach(var file in Directory.EnumerateFiles(ScorePath))
-        {
-            // Get player name
-            string name = Path.GetFileNameWithoutExtension(file);
-            // Get Player score, if no score, delete file.
-            int score;
-            if (Int32.TryParse(File.ReadAllText(file), out score))
-            {
-                Player player = new Player(name, score);
-                Players.Add(player);
-                Console.WriteLine($"Player : {player.Name}");
-                Console.WriteLine($"Score : {player.Score}");
-            }
-            else
-            {
-                Console.WriteLine($"File '{file}' not in a valid format, deleting it");
-                File.Delete(file);
-            }          
-        }
-
-    }
-}
 
 
-public class SaveManager
-{
-    private string SavePath { get; set; }
-    public SaveManager(string path)
-    {
-        SavePath = path;
-        int score;
-        // Delete invalid files in folder
-        foreach(var fileName in Directory.EnumerateFiles(SavePath))
-        {
-           if (!Int32.TryParse(File.ReadAllText(fileName), out score)) { File.Delete(fileName); }
-        }
-    }
 
-    public bool PlayerExists(string name)
-    {
-        foreach(var file in Directory.EnumerateFiles(SavePath))
-        {
-            if(Path.GetFileNameWithoutExtension(file) == name) { return true; }
 
-        }
-        return false;
-    }
 
-    public Player LoadPlayer(string name)
-    {
-        foreach(var file in Directory.EnumerateFiles(SavePath))
-        {
-            if(Path.GetFileNameWithoutExtension(file) == name) 
-            {
-                int score;
-                if (Int32.TryParse(File.ReadAllText(file), out score))
-                {
-                    Player player = new Player(name, score);
-                    return player;
-                }
-            }
-        }
-        return null;
-    }
-
-    public void SavePlayer(Player player)
-    {
-        File.WriteAllText($"{SavePath}/{player.Name}.txt", player.Score.ToString());
-    }
-}
