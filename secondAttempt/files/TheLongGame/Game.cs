@@ -55,25 +55,27 @@ public class Game
     /// returns the number of keys typed
     /// </summary>
     /// <returns></returns>
-    private int KeysTyping()
+    private bool KeysTyping()
     {
-        int typed = 0;
         ConsoleKeyInfo test;
-        do
-        {
-            test = Console.ReadKey();
-            // Console.WriteLine($"{test.Key} typed");
-            if(test.Key != ConsoleKey.Enter) { typed++; }
-        } while(test.Key != ConsoleKey.Enter);
-        return typed;
+        Console.WriteLine("Please press keys to play. Press enter to quit.");
+        test = Console.ReadKey(false);
+        if(test.Key != ConsoleKey.Enter) 
+        { 
+            CurrentPlayer.AddToScore(1);
+            return true; 
+        } 
+        return false;
     }
 
 
     private void GameLoop()
     {
-        Console.WriteLine($"Welcome {CurrentPlayer.Name}");
-        Console.WriteLine($"Current score : {CurrentPlayer.Score}");
-        CurrentPlayer.AddToScore(KeysTyping());
+        do
+        {
+            Console.Clear();
+            Console.WriteLine(CurrentPlayer.PlayerInfo());
+        } while(KeysTyping());
         Console.WriteLine($"Great job {CurrentPlayer.Name}, your score is now {CurrentPlayer.Score} !");
         GameSaveManager.SavePlayer(CurrentPlayer);
     }

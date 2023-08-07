@@ -15,4 +15,9 @@ public class Player
     {
         Score += score;
     }
+
+    public string PlayerInfo()
+    {
+        return ($"Welcome {Name}\nCurrent score : {Score}");
+    }
 }
