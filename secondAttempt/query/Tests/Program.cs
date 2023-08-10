@@ -31,6 +31,48 @@ var livingShipsIDP1 = from obj in objects
                     where obj.Hp > 0
                     where obj.PlayerID == 1 
                     select obj.ID;
+
+
+// Select ships, lowest Hp will be first
+var weakestLivingShip = 
+    from obj in objects
+    where obj.Hp > 0
+    orderby obj.Hp, obj.PlayerID // Second orderby is there to resolve tie
+    select obj;
+
+var strongestLivingShip = 
+    from obj in objects
+    where obj.Hp > 0
+    orderby obj.Hp descending // Reversing order here (ascending is default)
+    select obj;
+
+
+
+// Join 
+var objectColor = 
+    from obj in objects
+    join p in players on obj.PlayerID equals p.ID
+    select (obj, p.TeamColor); // -> Permet d'associer la couleur d'équipe du joueur possédant le ship à celui ci
+
+
+// La clause let permet de définir une variable à la volée
+var testLet =
+    from obj in objects
+    let percentHealth = obj.Hp != 0 ? (Convert.ToDecimal(obj.Hp) / obj.MaxHp) * 100 : 0
+    select $"Object has {percentHealth}% hp left";
+
+
+// La clause into permet d'utiliser le select precedent
+var test = 
+    from obj in objects
+    where obj.PlayerID == 1
+    select obj // Get ships from p1
+into objAlive
+    where objAlive.Hp != 0
+    select objAlive.ID;
+// Gets alive objects from p1
+
+foreach(var str in testLet) { Console.WriteLine(str); }
 public class GameObject
 {
     public int ID { get; set; }
