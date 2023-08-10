@@ -1,4 +1,20 @@
-﻿public record BlockCoordinate (int Row, int Column)
+﻿BlockCoordinate bloc = new BlockCoordinate(5, 8);
+Console.WriteLine(bloc);
+
+Console.WriteLine("Moving north 2 times");
+bloc += Direction.North;
+bloc += Direction.North;
+Console.WriteLine(bloc);
+
+BlockOffset off = new BlockOffset(45, -13);
+Console.WriteLine($"Setting an offset : {off}");
+
+bloc += off;
+Console.WriteLine(bloc);
+
+
+
+public record BlockCoordinate (int Row, int Column)
 {
     // Move with direction
     public static BlockCoordinate operator +(BlockCoordinate block, Direction dir) 
@@ -21,9 +37,6 @@
     // Invert
     public static BlockCoordinate operator +(BlockOffset offset, BlockCoordinate block) => block + offset;
 
-
-
-    // Debug purpose
 }
 public record BlockOffset (int RowOffset, int ColumnOffset); 
 public enum Direction { North, East, West, South } 
