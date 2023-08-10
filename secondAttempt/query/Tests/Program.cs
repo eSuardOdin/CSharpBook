@@ -17,6 +17,20 @@ IEnumerable<GameObject> everything = /*from clause*/   from obj in objects
 
 var ids = from obj in objects select obj.ID; // This results in IEnumerable<int> 
 var healthText = from obj in objects select $"{obj.Hp}/{obj.MaxHp}"; // Result in IEnumerable<string> like "88/100", "50/100"...
+var healthStatus = from obj in objects select (obj, $"{obj.Hp}/{obj.MaxHp}"); // Tuple (GameObject, string
+
+
+
+// Filtering with a where clause
+var livingShipsID = from obj in objects 
+                    where obj.Hp > 0 
+                    select obj.ID;
+
+// As many "where" as needed
+var livingShipsIDP1 = from obj in objects 
+                    where obj.Hp > 0
+                    where obj.PlayerID == 1 
+                    select obj.ID;
 public class GameObject
 {
     public int ID { get; set; }
