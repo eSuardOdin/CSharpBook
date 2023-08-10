@@ -12,7 +12,7 @@ Console.WriteLine($"Setting an offset : {off}");
 bloc += off;
 Console.WriteLine(bloc);
 
-
+Console.WriteLine($"Block row : {bloc[0]}");
 
 public record BlockCoordinate (int Row, int Column)
 {
@@ -30,12 +30,24 @@ public record BlockCoordinate (int Row, int Column)
     // Invert as parameters are not same type
     public static BlockCoordinate operator +(Direction dir, BlockCoordinate block) => block + dir;
 
-
     // Move with offset
     public static BlockCoordinate operator +(BlockCoordinate block, BlockOffset offset) => new BlockCoordinate(block.Row + offset.RowOffset, block.Column + offset.ColumnOffset);
 
     // Invert
     public static BlockCoordinate operator +(BlockOffset offset, BlockCoordinate block) => block + offset;
+
+
+    // Adding indexer
+    public int this[int index]
+    {
+        get
+        {
+            if (index == 0) { return Row;}
+            else            { return Column; }
+        }
+    }
+
+
 
 }
 public record BlockOffset (int RowOffset, int ColumnOffset); 
