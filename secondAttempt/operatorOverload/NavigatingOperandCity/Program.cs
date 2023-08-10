@@ -1,18 +1,25 @@
 ﻿BlockCoordinate bloc = new BlockCoordinate(5, 8);
 Console.WriteLine(bloc);
-
 Console.WriteLine("Moving north 2 times");
 bloc += Direction.North;
 bloc += Direction.North;
 Console.WriteLine(bloc);
+Console.WriteLine();
 
 BlockOffset off = new BlockOffset(45, -13);
 Console.WriteLine($"Setting an offset : {off}");
-
 bloc += off;
 Console.WriteLine(bloc);
-
 Console.WriteLine($"Block row : {bloc[0]}");
+Console.WriteLine();
+
+Console.WriteLine("Converting Direction South to offset");
+BlockOffset s = Direction.South;
+Console.WriteLine(s);
+// Console.WriteLine("Converting Direction North to offset");
+// Console.WriteLine("Converting Direction East to offset");
+// Console.WriteLine("Converting Direction West to offset");
+
 
 public record BlockCoordinate (int Row, int Column)
 {
@@ -50,5 +57,18 @@ public record BlockCoordinate (int Row, int Column)
 
 
 }
-public record BlockOffset (int RowOffset, int ColumnOffset); 
+public record BlockOffset (int RowOffset, int ColumnOffset)
+{
+    // Conversion from Direction
+    public static implicit operator BlockOffset(Direction dir) 
+    {
+        return dir switch
+        {
+            Direction.North => new BlockOffset(-1,0),
+            Direction.South => new BlockOffset(1,0),
+            Direction.East => new BlockOffset(0,1),
+            Direction.West => new BlockOffset(0,-1)
+        };
+    }
+}
 public enum Direction { North, East, West, South } 
