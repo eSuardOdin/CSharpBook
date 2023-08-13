@@ -7,9 +7,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <!-- <Using Remove="System.Linq" /> -->
-    <!-- <Using Include="System.Numerics" /> -->
-    <!-- <Using Include="System.Console" Static="true" /> -->
-  </ItemGroup>
 </Project>
