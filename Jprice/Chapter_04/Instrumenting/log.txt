@@ -1,1 +1,2 @@
+Debug says : Watching
 Trace says : Watching
