@@ -1,2 +1,7 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// Use dotnet watch
+
+while(true)
+{
+    Console.WriteLine("Hello, Changed message!");
+    await Task.Delay(2000);
+}
